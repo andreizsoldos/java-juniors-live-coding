@@ -16,7 +16,6 @@ public class OrderUtil {
     private OrderUtil() {
     }
 
-    // retrieve orders from csv lines
     public static List<Order> parseCsvLines(final List<String> lines) {
         List<Order> result = new ArrayList<>();
 
