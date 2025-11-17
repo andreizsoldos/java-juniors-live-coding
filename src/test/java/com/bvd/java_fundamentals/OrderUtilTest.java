@@ -8,21 +8,15 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static com.bvd.java_fundamentals.OrderUtil.customersWithCategoryDiversity;
-import static com.bvd.java_fundamentals.OrderUtil.findFirstProductContaining;
-import static com.bvd.java_fundamentals.OrderUtil.parseCsvLines;
-import static com.bvd.java_fundamentals.OrderUtil.revenueByDay;
-import static com.bvd.java_fundamentals.OrderUtil.topProductsByRevenue;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static com.bvd.java_fundamentals.OrderUtil.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 class OrderUtilTest {
 
@@ -59,7 +53,7 @@ class OrderUtilTest {
 
     @ParameterizedTest(name = "Parsing line: {0}")
     @MethodSource("validAndMalformed")
-    void testParseCsvLines_validAndMalformed(final List<?> expected, final int index) {
+    void testParseCsvLines_validAndMalformed(final List<?> expected, final int index) throws ParseException {
         List<Order> orders = parseCsvLines(csvOrder);
         assertEquals(expected.get(0), orders.get(index).getOrderId());
         assertEquals(expected.get(1), orders.get(index).getCustomerId());
@@ -72,14 +66,14 @@ class OrderUtilTest {
 
     @ParameterizedTest(name = "Parsing line: {0}")
     @MethodSource("emptyAndBlankValidations")
-    void testInputValidation(final String description, final List<String> expected) {
+    void testInputValidation(final String description, final List<String> expected) throws ParseException {
         List<Order> orders = parseCsvLines(expected);
         assertTrue(orders.isEmpty());
     }
 
     @ParameterizedTest(name = "Parsing line: {0}")
     @MethodSource("nullAndMalformedValidations")
-    void testMalformedValidation(final String description, final List<String> expected) {
+    void testMalformedValidation(final String description, final List<String> expected) throws ParseException {
         List<Order> orders = parseCsvLines(expected);
         assertTrue(orders.isEmpty());
     }
@@ -90,7 +84,7 @@ class OrderUtilTest {
     }
 
     @Test
-    void testRevenueByDay() {
+    void testRevenueByDay() throws ParseException {
         List<Order> orders = parseCsvLines(csvOrder);
         Map<LocalDate, BigDecimal> revenue = revenueByDay(orders);
         assertEquals(new BigDecimal("44.48"), revenue.get(LocalDate.of(2025, 10, 1)));
@@ -100,7 +94,7 @@ class OrderUtilTest {
     }
 
     @Test
-    void testTopProductsByRevenue() {
+    void testTopProductsByRevenue() throws ParseException {
         List<Order> orders = parseCsvLines(csvOrder);
         var top3 = topProductsByRevenue(orders, 3);
         assertEquals("Notebook 15", top3.get(0).getKey());
@@ -112,7 +106,7 @@ class OrderUtilTest {
     }
 
     @Test
-    void testCustomersWithCategoryDiversity() {
+    void testCustomersWithCategoryDiversity() throws ParseException {
         List<Order> orders = parseCsvLines(csvOrder);
         var diverseCustomers = customersWithCategoryDiversity(orders, 2);
         assertTrue(diverseCustomers.contains("C-002"));
@@ -122,7 +116,7 @@ class OrderUtilTest {
     }
 
     @Test
-    void testFindFirstProductContaining_caseInsensitive() {
+    void testFindFirstProductContaining_caseInsensitive() throws ParseException {
         List<Order> orders = parseCsvLines(csvOrder);
         var found = findFirstProductContaining(orders, "USB");
         assertTrue(found.isPresent());
