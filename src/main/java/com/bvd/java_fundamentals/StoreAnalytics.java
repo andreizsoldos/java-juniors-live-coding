@@ -37,7 +37,6 @@ public class StoreAnalytics {
             "O-1005,C-002,2025-10-03,Notebook 15,Computers,799.00,1",
             "O-1006,C-004,2025-10-03,Notebook 13,Computers,699.00,1",
             "O-1007,C-001,2025-10-03, USB-c cable,Accessories,9.99,1",
-            "BAD_LINE_THAT_SHOULD_BE_SKIPPED",
             "O-1008,C-002,2025-10-04,Monitor 27,Displays,189.99,2"
     );
 
