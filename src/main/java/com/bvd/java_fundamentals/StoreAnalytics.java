@@ -1,5 +1,8 @@
 package com.bvd.java_fundamentals;
 
+import com.bvd.java_fundamentals.model.Order;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.bvd.java_fundamentals.OrderUtil.customersWithCategoryDiversity;
@@ -41,6 +44,18 @@ public class StoreAnalytics {
             "O-1008,C-002,2025-10-04,Monitor 27,Displays,189.99,2"
     );
 
+    public static void main(String[] args) {
+        final var orders = parseCsvLines(StoreAnalytics.CSV_ORDER);
+        System.out.println("Valid orders: %s".formatted(orders.size()));
+        System.out.println("Revenue by day: %s".formatted(revenueByDay(orders)));
+        System.out.println("Top 3 products: %s".formatted(topProductsByRevenue(orders, 3)));
+        System.out.println("Customers who ordered from different categories (>=2 categories): %s".formatted(customersWithCategoryDiversity(orders, 2)));
+        System.out.println("First containing 'USB': %s".formatted(findFirstProductContaining(orders, "USB")));
+
+    }
+    }
+
+
     /* The expected output of the main method is:
         Valid orders: 8
         Revenue by day: {2025-10-04=379.98, 2025-10-03=1507.99, 2025-10-02=96.00, 2025-10-01=44.48}
@@ -49,12 +64,7 @@ public class StoreAnalytics {
         First containing 'USB': Optional[Order(orderId=O-1001, customerId=C-001, orderDate=2025-10-01,
         productName=USB-C Cable, category=Accessories, unitPrice=9.99, quantity=2)]
      */
-    public static void main(String[] args) {
-        final var orders = parseCsvLines(CSV_ORDER);
-        System.out.println("Valid orders: %s".formatted(orders.size()));
-        System.out.println("Revenue by day: %s".formatted(revenueByDay(orders)));
-        System.out.println("Top 3 products: %s".formatted(topProductsByRevenue(orders, 3)));
-        System.out.println("Customers who ordered from different categories (>=2 categories): %s".formatted(customersWithCategoryDiversity(orders, 2)));
-        System.out.println("First containing 'USB': %s".formatted(findFirstProductContaining(orders, "USB")));
-    }
-}
+
+
+
+

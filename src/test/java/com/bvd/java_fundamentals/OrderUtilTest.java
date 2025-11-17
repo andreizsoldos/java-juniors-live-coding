@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java.util.Date;
 
 import static com.bvd.java_fundamentals.OrderUtil.customersWithCategoryDiversity;
 import static com.bvd.java_fundamentals.OrderUtil.findFirstProductContaining;
@@ -92,7 +93,7 @@ class OrderUtilTest {
     @Test
     void testRevenueByDay() {
         List<Order> orders = parseCsvLines(csvOrder);
-        Map<LocalDate, BigDecimal> revenue = revenueByDay(orders);
+        Map<Date, BigDecimal> revenue = revenueByDay(orders);
         assertEquals(new BigDecimal("44.48"), revenue.get(LocalDate.of(2025, 10, 1)));
         assertEquals(new BigDecimal("96.00"), revenue.get(LocalDate.of(2025, 10, 2)));
         assertEquals(new BigDecimal("1507.99"), revenue.get(LocalDate.of(2025, 10, 3)));
