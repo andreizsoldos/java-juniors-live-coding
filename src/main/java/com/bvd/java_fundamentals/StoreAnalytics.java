@@ -2,11 +2,11 @@ package com.bvd.java_fundamentals;
 
 import java.util.List;
 
-import static com.bvd.java_fundamentals.OrderUtil.customersWithCategoryDiversity;
-import static com.bvd.java_fundamentals.OrderUtil.findFirstProductContaining;
-import static com.bvd.java_fundamentals.OrderUtil.parseCsvLines;
-import static com.bvd.java_fundamentals.OrderUtil.revenueByDay;
-import static com.bvd.java_fundamentals.OrderUtil.topProductsByRevenue;
+import static com.bvd.java_fundamentals.Work.OrderUtil.customersWithCategoryDiversity;
+import static com.bvd.java_fundamentals.Work.OrderUtil.findFirstProductContaining;
+import static com.bvd.java_fundamentals.Work.OrderUtil.parseCsvLines;
+import static com.bvd.java_fundamentals.Work.OrderUtil.revenueByDay;
+import static com.bvd.java_fundamentals.Work.OrderUtil.topProductsByRevenue;
 
 /*
  * You receive a raw CSV order data from a tiny online shop. You need to parse it and compute a few analytics.

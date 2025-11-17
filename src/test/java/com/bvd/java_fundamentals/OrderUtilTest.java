@@ -14,11 +14,11 @@ import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static com.bvd.java_fundamentals.OrderUtil.customersWithCategoryDiversity;
-import static com.bvd.java_fundamentals.OrderUtil.findFirstProductContaining;
-import static com.bvd.java_fundamentals.OrderUtil.parseCsvLines;
-import static com.bvd.java_fundamentals.OrderUtil.revenueByDay;
-import static com.bvd.java_fundamentals.OrderUtil.topProductsByRevenue;
+import static com.bvd.java_fundamentals.Work.OrderUtil.customersWithCategoryDiversity;
+import static com.bvd.java_fundamentals.Work.OrderUtil.findFirstProductContaining;
+import static com.bvd.java_fundamentals.Work.OrderUtil.parseCsvLines;
+import static com.bvd.java_fundamentals.Work.OrderUtil.revenueByDay;
+import static com.bvd.java_fundamentals.Work.OrderUtil.topProductsByRevenue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
