@@ -1,5 +1,6 @@
 package com.bvd.java_fundamentals;
 
+import java.text.ParseException;
 import java.util.List;
 
 import static com.bvd.java_fundamentals.OrderUtil.customersWithCategoryDiversity;
@@ -49,7 +50,7 @@ public class StoreAnalytics {
         First containing 'USB': Optional[Order(orderId=O-1001, customerId=C-001, orderDate=2025-10-01,
         productName=USB-C Cable, category=Accessories, unitPrice=9.99, quantity=2)]
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         final var orders = parseCsvLines(CSV_ORDER);
         System.out.println("Valid orders: %s".formatted(orders.size()));
         System.out.println("Revenue by day: %s".formatted(revenueByDay(orders)));
