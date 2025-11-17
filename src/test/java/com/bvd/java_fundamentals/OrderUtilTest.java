@@ -1,6 +1,6 @@
 package com.bvd.java_fundamentals;
 
-import com.bvd.java_fundamentals.model.Order;
+import com.bvd.java_fundamentals.Order;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
