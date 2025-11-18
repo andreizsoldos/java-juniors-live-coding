@@ -135,7 +135,7 @@ public class OrderUtil {
         System.out.println("ex 4----------------------------------------" + intermediatMap);
 
         result = intermediatMap.entrySet().stream()
-                .filter( x -> x.getValue().size() >= minCategories)
+                .filter(x -> x.getValue().size() >= minCategories)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
 
@@ -146,7 +146,20 @@ public class OrderUtil {
 
     // find the first product containing a given substring (case-insensitive)
     public static Optional<Order> findFirstProductContaining(final List<Order> orders, final String product) {
-        // Write your code here and replace the return statement
-        return Optional.empty();
+
+        if (orders == null) {
+            return Optional.empty();
+        }
+        if (product == null) {
+            return Optional.empty();
+        }
+
+        Optional<Order> op = orders.stream()
+                .filter(x -> x.getProductName().contains(product))
+                .findFirst();
+
+        System.out.println("ex 5 ----------------------------------" + op);
+
+        return op;
     }
 }
