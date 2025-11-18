@@ -1,25 +1,26 @@
 package com.bvd.java_fundamentals.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Order {
 
-    private Integer orderId;
-    private Integer customerId;
+    private String orderId;
+    private String customerId;
     private LocalDate orderDate;
-    private String category;
     private String productName;
-    private Double unitPrice;
+    private String category;
+    private BigDecimal unitPrice;
     private Integer quantity;
 
-
-    public Order(Integer orderId, Integer quantity, Double unitPrice, String category, String productName, LocalDate orderDate, Integer customerId) {
+    public Order(String orderId, String customerId, LocalDate orderDate, String productName, String category, BigDecimal unitPrice, Integer quantity) {
         this.orderId = orderId;
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.category = category;
-        this.orderDate = orderDate;
         this.customerId = customerId;
+        this.orderDate = orderDate;
+        this.productName = productName;
+        this.category = category;
+        this.unitPrice = unitPrice;
+        this.quantity = quantity;
     }
 
     public String getProductName() {
@@ -31,7 +32,6 @@ public class Order {
     }
 
 
-
     public Integer getQuantity() {
         return quantity;
     }
@@ -40,11 +40,11 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public Double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 
@@ -64,19 +64,19 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public Integer getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
-    public Integer getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 }
